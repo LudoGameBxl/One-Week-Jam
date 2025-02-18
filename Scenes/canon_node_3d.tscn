@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bce4o0qcd2d6b"]
+
+[ext_resource type="Script" path="res://Scripts/canon_node_3d.gd" id="1_lnfj1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eti3t"]
+albedo_color = Color(0.308594, 0.308594, 0.308594, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4mw1m"]
+material = SubResource("StandardMaterial3D_eti3t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jptn3"]
+albedo_color = Color(0.308594, 0.308594, 0.308594, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_n1ibc"]
+material = SubResource("StandardMaterial3D_jptn3")
+
+[node name="CanonNode3D" type="CharacterBody3D"]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+script = ExtResource("1_lnfj1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.258819, -0.965926, 0, 0.965926, -0.258819, 0, 0, -0.764)
+mesh = SubResource("CylinderMesh_4mw1m")
+skeleton = NodePath("../../TerrainNode3D")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -2.91038e-11, 0, 2.91038e-11, 1, 7.45058e-09, 0, 0, 1, 7.99252e-05, -0.00545263, -0.0735049)
+mesh = SubResource("SphereMesh_n1ibc")
+skeleton = NodePath("../../TerrainNode3D")
