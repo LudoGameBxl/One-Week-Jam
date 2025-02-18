@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxhsai87tv5o0"]
+[gd_scene load_steps=7 format=3 uid="uid://bxhsai87tv5o0"]
 
 [ext_resource type="Script" path="res://Scenes/target.gd" id="1_dhk0n"]
 [ext_resource type="Texture2D" uid="uid://cvmypcexd7mjy" path="res://assets/test/concept.PNG" id="1_l5831"]
@@ -12,6 +12,9 @@ albedo_color = Color(0.384595, 1, 0.416236, 1)
 [sub_resource type="QuadMesh" id="QuadMesh_de6c2"]
 material = SubResource("StandardMaterial3D_f8j4s")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_63ff7"]
+size = Vector3(0.778564, 0.850594, 0.100464)
+
 [node name="TargetNode3D" type="Node3D"]
 script = ExtResource("1_dhk0n")
 
@@ -19,3 +22,11 @@ script = ExtResource("1_dhk0n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 material_override = SubResource("StandardMaterial3D_lbgws")
 mesh = SubResource("QuadMesh_de6c2")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028, 0.457328, 0.023)
+shape = SubResource("BoxShape3D_63ff7")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

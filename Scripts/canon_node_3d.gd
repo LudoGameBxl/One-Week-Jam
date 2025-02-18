@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var rotation_speed  = 0.5
-var rotation_range: float = 45
+var rotation_range: float = 55
 @export var projectile_scene: PackedScene  # Référence à la scène du projectile
 @export var max_force: float = 50.0  # Force max du tir
 @export var charge_rate: float = 20.0  # Vitesse de chargement
@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("space") and charging:
 		charge_time += delta * charge_rate
 		charge_time = min(charge_time, max_force)  # Cap à max_force
-		SignalManager.current_charge_time.emit(charge_time)
+		SignalManager.current_charge_time.emit(charge_time * 2)
 
 	if Input.is_action_just_released("space") and charging:
 		charging = false
