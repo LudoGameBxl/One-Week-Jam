@@ -1,39 +1,25 @@
-name: Deploy to GitHub Pages
+name: Deploy Web Server with Node.js
 
 on:
   push:
     branches:
-      - main  # Change selon ta branche principale
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout du dépôt
+      - name: Checkout du code
         uses: actions/checkout@v4
 
-      - name: Configurer Pages
-        uses: actions/configure-pages@v3
+      - name: Installer Node.js et http-server
+        run: |
+          npm install -g http-server
 
-      - name: Upload des fichiers pour GitHub Pages
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: build  # Le dossier contenant ton index.html
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Déployer sur GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - name: Lancer le serveur
+        run: |
+          cd build
+          http-server -p 8000 &
+          sleep 5
+          curl -I http://localhost:8000
