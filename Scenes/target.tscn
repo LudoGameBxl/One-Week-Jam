@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxhsai87tv5o0"]
+
+[ext_resource type="Script" path="res://Scenes/target.gd" id="1_dhk0n"]
+[ext_resource type="Texture2D" uid="uid://cvmypcexd7mjy" path="res://assets/test/concept.PNG" id="1_l5831"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbgws"]
+albedo_texture = ExtResource("1_l5831")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8j4s"]
+albedo_color = Color(0.384595, 1, 0.416236, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_de6c2"]
+material = SubResource("StandardMaterial3D_f8j4s")
+
+[node name="TargetNode3D" type="Node3D"]
+script = ExtResource("1_dhk0n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_lbgws")
+mesh = SubResource("QuadMesh_de6c2")

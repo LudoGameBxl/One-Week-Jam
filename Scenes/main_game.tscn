@@ -1,12 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://bav5qarx5mwla"]
 
 [ext_resource type="PackedScene" uid="uid://bce4o0qcd2d6b" path="res://Scenes/canon_node_3d.tscn" id="1_nit72"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ga8j"]
-albedo_color = Color(1, 0.180654, 0.105955, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_74bsk"]
-material = SubResource("StandardMaterial3D_7ga8j")
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="2_enb5c"]
+[ext_resource type="PackedScene" uid="uid://bxhsai87tv5o0" path="res://Scenes/target.tscn" id="2_utmef"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wad2g"]
 albedo_color = Color(0.453125, 0.433803, 0.337544, 1)
@@ -31,33 +27,25 @@ sky = SubResource("Sky_joovx")
 [node name="MainGame" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.99998, 0.0062779, -0.000535285, -0.00608731, 0.984546, 0.175022, 0.00162578, -0.175015, 0.984564, 0, 1.64003, 6.06871)
+transform = Transform3D(0.99998, 0.0062779, -0.000535285, -0.00608731, 0.984546, 0.175022, 0.00162578, -0.175015, 0.984564, 0, 2.80609, 6.06871)
 
 [node name="CanonNode3D" parent="." instance=ExtResource("1_nit72")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.823016, 4.09755)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2.36561, 0.823016, 3.34539)
 
-[node name="TargetsNode3D" type="Node3D" parent="."]
+[node name="TargetsContainer" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.769148, 4.53321)
 
-[node name="TargetMesh" type="MeshInstance3D" parent="TargetsNode3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46434, -0.269148, -12.236)
-mesh = SubResource("QuadMesh_74bsk")
-skeleton = NodePath("../../TerrainNode3D")
+[node name="TargetNode3D" parent="TargetsContainer" instance=ExtResource("2_utmef")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4.63439, 0.053868, -5.18782)
 
-[node name="TargetMesh2" type="MeshInstance3D" parent="TargetsNode3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55294, -0.269148, -7.4206)
-mesh = SubResource("QuadMesh_74bsk")
-skeleton = NodePath("../../TerrainNode3D")
+[node name="TargetNode3D2" parent="TargetsContainer" instance=ExtResource("2_utmef")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3.15747, 0.053868, -7.17599)
 
-[node name="TargetMesh3" type="MeshInstance3D" parent="TargetsNode3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98169, -0.269148, -31.5803)
-mesh = SubResource("QuadMesh_74bsk")
-skeleton = NodePath("../../TerrainNode3D")
+[node name="TargetNode3D3" parent="TargetsContainer" instance=ExtResource("2_utmef")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2.41422, 0.053868, -5.18782)
 
-[node name="TargetMesh4" type="MeshInstance3D" parent="TargetsNode3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.28943, -0.269148, -14.7723)
-mesh = SubResource("QuadMesh_74bsk")
-skeleton = NodePath("../../TerrainNode3D")
+[node name="TargetNode3D4" parent="TargetsContainer" instance=ExtResource("2_utmef")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1.45674, 0.053868, -5.18782)
 
 [node name="TerrainNode3D" type="Node3D" parent="."]
 
@@ -78,3 +66,34 @@ transform = Transform3D(1, 0, 0, 0, 0.499637, 0.866235, 0, -0.866235, 0.499637, 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environement"]
 environment = SubResource("Environment_doklh")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Menus" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_enb5c")
+
+[node name="ChargeTimeProgressBar" type="ProgressBar" parent="UI/HUD"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 185.0
+offset_top = -93.0
+offset_right = 431.0
+offset_bottom = -66.0
+grow_vertical = 0
