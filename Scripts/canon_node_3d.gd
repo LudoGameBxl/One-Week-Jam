@@ -16,7 +16,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	if Input.is_action_pressed("left"):
 		rotation_degrees.y = clamp(rotation_degrees.y + rotation_speed, -rotation_range, rotation_range)
 	if Input.is_action_pressed("right"):
