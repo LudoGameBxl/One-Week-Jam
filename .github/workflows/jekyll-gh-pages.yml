@@ -1,10 +1,9 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: Deploy Web Server with Node.js
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -14,9 +13,13 @@ jobs:
       - name: Checkout du code
         uses: actions/checkout@v4
 
-      - name: Démarrer un serveur web
+      - name: Installer Node.js et http-server
+        run: |
+          npm install -g http-server
+
+      - name: Lancer le serveur
         run: |
           cd build
-          python3 -m http.server 8000 &
+          http-server -p 8000 &
           sleep 5
           curl -I http://localhost:8000
