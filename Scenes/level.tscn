@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b44kiccllw5on" path="res://Scenes/canon_wip.tscn" id="1_v5ljf"]
 [ext_resource type="PackedScene" uid="uid://brs2q3aa32omo" path="res://Scenes/spawn_point_zone.tscn" id="2_y3v6j"]
-[ext_resource type="PackedScene" uid="uid://bxhsai87tv5o0" path="res://Scenes/target.tscn" id="3_dvumv"]
+[ext_resource type="PackedScene" uid="uid://bgodwmf5w7qn4" path="res://Scenes/target_fix.tscn" id="3_0nrji"]
 [ext_resource type="PackedScene" uid="uid://ccwq6mksj10r" path="res://Scenes/field_wip.tscn" id="4_rjxx8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5a5w"]
@@ -25,557 +25,44 @@ fog_density = 0.1153
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.99998, 0.0062779, -0.000535285, -0.00608731, 0.984546, 0.175022, 0.00162578, -0.175015, 0.984564, 0, 7.4765, 8.96199)
+current = true
 fov = 90.0
 
 [node name="canon_wip" parent="." instance=ExtResource("1_v5ljf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.774, 4.69278, 4.15778)
 
-[node name="SpawnPointZone" parent="." instance=ExtResource("2_y3v6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.32675, -8.58689)
-visible = false
-
 [node name="TargetsContainer" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.997564, -0.0697565, 0, 0.0697565, 0.997564, 0, 1.38924, -12.5208)
 
-[node name="TargetNode3D2" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.209248, 1.70769, 6.55951)
+[node name="SpawnPointZone" parent="TargetsContainer" instance=ExtResource("2_y3v6j")]
+transform = Transform3D(1, 0, 0, 0, 0.997564, 0.0697565, 0, -0.0697565, 0.997564, 0, 0, 0)
+visible = false
+terrain = NodePath("../../TerrainNode3D")
+spawn_area = Vector3(3, 0, 3)
 
-[node name="TargetNode3D3" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34286, 2.21994, 6.52369)
+[node name="TargetFix" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62924, 1.92275, 8.44731)
 
-[node name="TargetNode3D4" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34286, 3.58042, 1.99404)
+[node name="TargetFix2" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75623, 2.14968, 5.40845)
 
-[node name="TargetNode3D5" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123577, 3.33252, 2.01137)
+[node name="TargetFix3" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.413905, 1.31054, 8.49013)
 
-[node name="TargetNode3D6" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123577, 2.58042, -3.16597)
+[node name="TargetFix4" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28692, 1.9991, 5.41899)
 
-[node name="TargetNode3D7" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.209248, -2.62846, -13.9759)
+[node name="TargetFix5" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.74816, 3.78058, 8.31741)
 
-[node name="TargetNode3D8" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34286, -1.33193, -14.0666)
+[node name="TargetFix6" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.87514, 3.44506, 5.31787)
 
-[node name="TargetNode3D9" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34286, -1.98857, -18.4552)
+[node name="TargetFix7" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.70501, 2.74168, 8.39006)
 
-[node name="TargetNode3D10" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123577, -2.31199, -18.4326)
-
-[node name="TargetNode3D11" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123577, 1.3557, -23.919)
-
-[node name="TargetNode3D12" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.42922, 1.63235, -4.52479)
-
-[node name="TargetNode3D13" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70439, 2.02535, -4.55227)
-
-[node name="TargetNode3D14" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70439, -0.490245, -8.81087)
-
-[node name="TargetNode3D15" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.51489, -0.968247, -8.77745)
-
-[node name="TargetNode3D16" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.51489, -3.15838, -13.8542)
-
-[node name="TargetNode3D17" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4032, 3.55882, 6.43007)
-
-[node name="TargetNode3D18" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5368, 4.17064, 6.38729)
-
-[node name="TargetNode3D19" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5368, 4.89788, 1.90191)
-
-[node name="TargetNode3D20" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3175, 4.22597, 1.9489)
-
-[node name="TargetNode3D21" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3175, 3.12988, -3.20439)
-
-[node name="TargetNode3D22" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4032, 0.0607004, -14.164)
-
-[node name="TargetNode3D23" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5368, 2.15537, -14.3104)
-
-[node name="TargetNode3D24" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5368, 1.00427, -18.6644)
-
-[node name="TargetNode3D25" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3175, -0.558116, -18.5552)
-
-[node name="TargetNode3D26" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3175, -0.741071, -23.7723)
-
-[node name="TargetNode3D27" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.76471, 3.18331, -4.63324)
-
-[node name="TargetNode3D28" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8983, 2.87544, -4.61171)
-
-[node name="TargetNode3D29" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8983, 1.48532, -8.94902)
-
-[node name="TargetNode3D30" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.67904, 0.602141, -8.88726)
-
-[node name="TargetNode3D31" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.67904, -1.47971, -13.9716)
-
-[node name="TargetNode3D32" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7538, 4.00731, 6.39871)
-
-[node name="TargetNode3D33" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8874, 2.18063, 6.52644)
-
-[node name="TargetNode3D34" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8874, 3.42488, 2.00492)
-
-[node name="TargetNode3D35" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6681, 4.72632, 1.91391)
-
-[node name="TargetNode3D36" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6681, 3.28642, -3.21534)
-
-[node name="TargetNode3D37" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7538, 2.00236, -14.2997)
-
-[node name="TargetNode3D38" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8874, 0.0477219, -14.1631)
-
-[node name="TargetNode3D39" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8874, 0.372023, -18.6202)
-
-[node name="TargetNode3D40" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6681, 0.922253, -18.6587)
-
-[node name="TargetNode3D41" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6681, 0.406781, -23.8526)
-
-[node name="TargetNode3D42" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1153, 3.28308, -4.64022)
-
-[node name="TargetNode3D43" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2489, 2.71594, -4.60056)
-
-[node name="TargetNode3D44" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2489, 2.0113, -8.9858)
-
-[node name="TargetNode3D45" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0296, 1.75864, -8.96813)
-
-[node name="TargetNode3D46" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0296, 0.649692, -14.1205)
-
-[node name="TargetNode3D47" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.9477, 0.0688081, 6.67412)
-
-[node name="TargetNode3D48" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0813, -0.504174, 6.71418)
-
-[node name="TargetNode3D49" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0813, -0.0291317, 2.24645)
-
-[node name="TargetNode3D50" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.862, 1.39896, 2.14659)
-
-[node name="TargetNode3D51" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.862, 0.719665, -3.03585)
-
-[node name="TargetNode3D52" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.9477, -0.145875, -14.1495)
-
-[node name="TargetNode3D53" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0813, -1.63757, -14.0452)
-
-[node name="TargetNode3D54" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0813, -1.67169, -18.4773)
-
-[node name="TargetNode3D55" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.862, -0.179781, -18.5817)
-
-[node name="TargetNode3D56" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.862, 0.505196, -23.8595)
-
-[node name="TargetNode3D57" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3092, 0.319224, -4.43297)
-
-[node name="TargetNode3D58" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4429, 0.316038, -4.43274)
-
-[node name="TargetNode3D59" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4429, -0.148348, -8.83478)
-
-[node name="TargetNode3D60" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2236, -0.275496, -8.82589)
-
-[node name="TargetNode3D61" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2236, 0.317684, -14.0973)
-
-[node name="TargetNode3D62" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7538, 0.500194, -24.9641)
-
-[node name="TargetNode3D63" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8874, 1.21769, -25.0142)
-
-[node name="TargetNode3D64" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8874, 2.77826, -29.5579)
-
-[node name="TargetNode3D65" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6681, 1.62553, -29.4773)
-
-[node name="TargetNode3D66" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6681, 3.71115, -34.8531)
-
-[node name="TargetNode3D67" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7538, 5.5146, -46.1533)
-
-[node name="TargetNode3D68" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8874, 5.92374, -46.182)
-
-[node name="TargetNode3D69" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8874, 6.66474, -50.6683)
-
-[node name="TargetNode3D70" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6681, 6.41451, -50.6508)
-
-[node name="TargetNode3D71" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6681, 3.83638, -55.7005)
-
-[node name="TargetNode3D72" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1153, 3.19677, -36.2422)
-
-[node name="TargetNode3D73" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2489, 4.13784, -36.308)
-
-[node name="TargetNode3D74" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2489, 4.62155, -40.7763)
-
-[node name="TargetNode3D75" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0296, 3.04337, -40.666)
-
-[node name="TargetNode3D76" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0296, 2.74222, -45.8749)
-
-[node name="TargetNode3D77" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.9477, 0.754939, -24.9819)
-
-[node name="TargetNode3D78" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0813, -1.73505, -24.8078)
-
-[node name="TargetNode3D79" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0813, -1.28975, -29.2734)
-
-[node name="TargetNode3D80" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.862, 1.96323, -29.5009)
-
-[node name="TargetNode3D81" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.862, 3.72217, -34.8538)
-
-[node name="TargetNode3D82" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.9477, 4.71685, -46.0976)
-
-[node name="TargetNode3D83" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0813, 0.934114, -45.8331)
-
-[node name="TargetNode3D84" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0813, -2.28965, -50.0421)
-
-[node name="TargetNode3D85" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.862, 4.30209, -50.5031)
-
-[node name="TargetNode3D86" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.862, -0.224423, -55.4165)
-
-[node name="TargetNode3D87" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3092, 4.59998, -36.3403)
-
-[node name="TargetNode3D88" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4429, 3.85721, -36.2884)
-
-[node name="TargetNode3D89" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4429, 4.33929, -40.7566)
-
-[node name="TargetNode3D90" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2236, 4.85716, -40.7928)
-
-[node name="TargetNode3D91" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2236, 5.96774, -46.1004)
-
-[node name="TargetNode3D92" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2823, -1.4474, 6.78014)
-
-[node name="TargetNode3D93" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1487, 1.98953, 6.5398)
-
-[node name="TargetNode3D94" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1487, 3.21548, 2.01956)
-
-[node name="TargetNode3D95" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.368, -1.68018, 2.3619)
-
-[node name="TargetNode3D96" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.368, -1.77769, -2.86122)
-
-[node name="TargetNode3D97" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2823, -1.00454, -14.0895)
-
-[node name="TargetNode3D98" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1487, 3.17346, -14.3816)
-
-[node name="TargetNode3D99" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1487, 2.64259, -18.779)
-
-[node name="TargetNode3D100" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.368, -0.479763, -18.5607)
-
-[node name="TargetNode3D101" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.368, 0.0627112, -23.8285)
-
-[node name="TargetNode3D102" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9208, -4.18528, -4.11798)
-
-[node name="TargetNode3D103" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.7872, -1.37169, -4.31472)
-
-[node name="TargetNode3D104" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.7872, -1.16496, -8.76369)
-
-[node name="TargetNode3D105" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.0065, -4.66263, -8.51911)
-
-[node name="TargetNode3D106" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.0065, -4.71134, -13.7456)
-
-[node name="TargetNode3D107" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0884, 3.52127, 6.4327)
-
-[node name="TargetNode3D108" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9548, 4.39653, 6.37149)
-
-[node name="TargetNode3D109" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9548, 4.42579, 1.93493)
-
-[node name="TargetNode3D110" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1741, 4.40117, 1.93665)
-
-[node name="TargetNode3D111" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1741, 4.25092, -3.28278)
-
-[node name="TargetNode3D112" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0884, 0.816263, -14.2168)
-
-[node name="TargetNode3D113" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9548, -2.70055, -13.9709)
-
-[node name="TargetNode3D114" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9548, 0.828132, -18.6521)
-
-[node name="TargetNode3D115" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1741, 1.41802, -18.6934)
-
-[node name="TargetNode3D116" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1741, 1.95046, -23.9606)
-
-[node name="TargetNode3D117" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7269, 3.98476, -4.68928)
-
-[node name="TargetNode3D118" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5933, 4.07353, -4.69549)
-
-[node name="TargetNode3D119" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5933, 2.4178, -9.01422)
-
-[node name="TargetNode3D120" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8125, 4.10028, -9.13187)
-
-[node name="TargetNode3D121" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8125, 3.38535, -14.3118)
-
-[node name="TargetNode3D122" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7378, 4.45155, 6.36765)
-
-[node name="TargetNode3D123" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60418, 3.6338, 6.42483)
-
-[node name="TargetNode3D124" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60418, 3.15424, 2.02384)
-
-[node name="TargetNode3D125" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8235, 4.25144, 1.94712)
-
-[node name="TargetNode3D126" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8235, 3.26844, -3.21408)
-
-[node name="TargetNode3D127" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7378, -2.53085, -13.9827)
-
-[node name="TargetNode3D128" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60418, -2.87056, -13.959)
-
-[node name="TargetNode3D129" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60418, 1.37024, -18.69)
-
-[node name="TargetNode3D130" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8235, 1.00056, -18.6642)
-
-[node name="TargetNode3D131" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8235, 2.73994, -24.0158)
-
-[node name="TargetNode3D132" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3763, 4.01148, -4.69115)
-
-[node name="TargetNode3D133" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2426, 2.8724, -4.6115)
-
-[node name="TargetNode3D134" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2426, -0.491581, -8.81078)
-
-[node name="TargetNode3D135" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4619, 1.79706, -8.97082)
-
-[node name="TargetNode3D136" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4619, -0.580558, -14.0345)
-
-[node name="TargetNode3D137" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54386, 2.22705, 6.5232)
-
-[node name="TargetNode3D138" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58976, 1.68731, 6.56094)
-
-[node name="TargetNode3D139" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58976, 3.44436, 2.00356)
-
-[node name="TargetNode3D140" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62953, 2.8034, 2.04838)
-
-[node name="TargetNode3D141" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62953, 2.05842, -3.12947)
-
-[node name="TargetNode3D142" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54386, -3.14773, -13.9396)
-
-[node name="TargetNode3D143" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58976, -2.18933, -14.0066)
-
-[node name="TargetNode3D144" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58976, -2.61197, -18.4116)
-
-[node name="TargetNode3D145" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62953, -0.317916, -18.572)
-
-[node name="TargetNode3D146" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62953, 3.36, -24.0591)
-
-[node name="TargetNode3D147" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.18233, 2.31371, -4.57244)
-
-[node name="TargetNode3D148" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04872, 1.60657, -4.52298)
-
-[node name="TargetNode3D149" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04872, -0.927326, -8.78031)
-
-[node name="TargetNode3D150" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.268, -0.619154, -8.80186)
-
-[node name="TargetNode3D151" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.268, -2.69887, -13.8864)
-
-[node name="TargetNode3D152" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7378, 2.76738, -25.1226)
-
-[node name="TargetNode3D153" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60418, 4.03752, -25.2114)
-
-[node name="TargetNode3D154" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60418, 1.47699, -29.4669)
-
-[node name="TargetNode3D155" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8235, 1.30662, -29.455)
-
-[node name="TargetNode3D156" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8235, 0.0529561, -34.5973)
-
-[node name="TargetNode3D157" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7378, 2.64903, -45.953)
-
-[node name="TargetNode3D158" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60418, -0.395011, -45.7401)
-
-[node name="TargetNode3D159" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60418, -0.109226, -50.1946)
-
-[node name="TargetNode3D160" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8235, 3.17324, -50.4241)
-
-[node name="TargetNode3D161" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8235, 1.78037, -55.5567)
-
-[node name="TargetNode3D162" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3763, 1.86949, -36.1494)
-
-[node name="TargetNode3D163" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2426, 0.412381, -36.0475)
-
-[node name="TargetNode3D164" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2426, 1.98719, -40.5921)
-
-[node name="TargetNode3D165" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4619, 2.93252, -40.6582)
-
-[node name="TargetNode3D166" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4619, 4.14085, -45.9727)
-
-[node name="TargetNode3D167" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54386, 3.41769, -25.1681)
-
-[node name="TargetNode3D168" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58976, -0.00761104, -24.9285)
-
-[node name="TargetNode3D169" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58976, 1.31573, -29.4556)
-
-[node name="TargetNode3D170" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62953, 2.4424, -29.5344)
-
-[node name="TargetNode3D171" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62953, -0.951232, -34.527)
-
-[node name="TargetNode3D172" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54386, -1.41639, -45.6687)
-
-[node name="TargetNode3D173" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58976, 0.603369, -45.8099)
-
-[node name="TargetNode3D174" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58976, 0.271221, -50.2212)
-
-[node name="TargetNode3D175" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62953, -1.6241, -50.0887)
-
-[node name="TargetNode3D176" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62953, -2.7776, -55.238)
-
-[node name="TargetNode3D177" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.18233, -2.09716, -35.872)
-
-[node name="TargetNode3D178" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04872, -1.02212, -35.9472)
-
-[node name="TargetNode3D179" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04872, -1.41346, -40.3543)
-
-[node name="TargetNode3D180" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.268, -1.45769, -40.3512)
-
-[node name="TargetNode3D181" parent="TargetsContainer" instance=ExtResource("3_dvumv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.268, -0.179158, -45.6706)
+[node name="TargetFix8" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.83199, 2.64876, 5.37356)
 
 [node name="TerrainNode3D" type="Node3D" parent="."]
 
@@ -595,3 +82,8 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environement"]
 environment = SubResource("Environment_doklh")
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.82265, -3.75813)
+visible = false
+current = true

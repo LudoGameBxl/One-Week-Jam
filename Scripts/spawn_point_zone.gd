@@ -1,34 +1,38 @@
 extends Node3D
 
-@export var item_scene : PackedScene  # Scène de l'objet à faire apparaître
-@export var spawn_area_size : Vector3 = Vector3(4, 0, 4)  # Taille de la zone de spawn
-@export var spawn_count : int = 2  # Nombre d'items à spawn
-
-var raycast : RayCast3D
+@export var item_scene: PackedScene
+@export var terrain: NodePath
+@export var spawn_area: Vector3 = Vector3(5, 0, 5)  # Zone de spawn (X, Z)
 
 func _ready():
-	raycast = RayCast3D.new()  # Crée un RayCast3D
-	add_child(raycast)
-	raycast.target_position = Vector3(0, -10, 0)  # Dirige le rayon vers le bas
-	
-	for i in range(spawn_count):
-		spawn_item()
+	spawn_item()
 
 func spawn_item():
-	var spawn_pos = Vector3(
-		randf_range(-spawn_area_size.x / 2, spawn_area_size.x / 2),
-		5,
-		randf_range(-spawn_area_size.y / 2, spawn_area_size.y / 2)
-	)
-	
-	raycast.position = spawn_pos  # Positionne le RayCast à un endroit aléatoire
+	# Générer une position aléatoire dans la zone de spawn
+	var random_x = randf_range(-spawn_area.x / 2, spawn_area.x / 2)
+	var random_z = randf_range(-spawn_area.z / 2, spawn_area.z / 2)
+	#var spawn_position = Vector3(random_x, 0, random_z)
+	var spawn_position = Vector3(0, 5, 0)
 
-	raycast.force_raycast_update()
+	# Utiliser un RayCast pour trouver la hauteur du terrain
+	var raycast = RayCast3D.new()
+	raycast.position = spawn_position
+	raycast.target_position = Vector3(0, -100, 0)  # Lancer un rayon vers le bas
+	raycast.enabled = true
+	add_child(raycast)
+
+	# Attendre une frame pour que le RayCast se mette à jour
+	await get_tree().process_frame
+
 	if raycast.is_colliding():
-		print("is colliding")
-		var hit_pos = raycast.get_collision_point()  # Obtient la position de collision
-		print(hit_pos)
-		# hit_pos.y = hit_pos.y + 3
-		var item_instance = item_scene.instantiate()  # Instancie l'objet
-		item_instance.position = hit_pos  # Positionne l'objet sur le terrain
-		add_child(item_instance)  # Ajoute l'objet à la scène
+		print("collidinggggggggggggg")
+		var collision_point = raycast.get_collision_point()
+		spawn_position.y = collision_point.y  # Ajuster la hauteur
+
+	# Supprimer le RayCast après utilisation
+	raycast.queue_free()
+
+	# Instancier l'item et le placer à la bonne position
+	var item = item_scene.instantiate()
+	add_child(item)
+	item.global_transform.origin = spawn_position

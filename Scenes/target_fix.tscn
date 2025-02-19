@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgodwmf5w7qn4"]
+
+[ext_resource type="Script" path="res://Scripts/target_fix.gd" id="1_c256t"]
+[ext_resource type="Texture2D" uid="uid://bp011ud7j3pfk" path="res://assets/test/concept_02.PNG" id="2_ve6ne"]
+[ext_resource type="ArrayMesh" uid="uid://cjwydc6su1yib" path="res://assets/concept/noisette.mesh" id="3_x7owv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tengy"]
+albedo_texture = ExtResource("2_ve6ne")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ceeda"]
+material = SubResource("StandardMaterial3D_tengy")
+size = Vector3(1, 1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fnt54"]
+size = Vector3(1, 1, 0.121155)
+
+[sub_resource type="Animation" id="Animation_hjf1w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/NoisetteMeshInstance3D2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.25, 0.25, 0.25)]
+}
+
+[sub_resource type="Animation" id="Animation_t8yhu"]
+resource_name = "new_animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.14159, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/NoisetteMeshInstance3D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.2, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.25, 0.25, 0.25), Vector3(0.35, 0.35, 0.35), Vector3(0.25, 0.25, 0.25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l0ccy"]
+_data = {
+"RESET": SubResource("Animation_hjf1w"),
+"rotate": SubResource("Animation_t8yhu")
+}
+
+[node name="TargetFix" type="Node3D"]
+script = ExtResource("1_c256t")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="SignMeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_ceeda")
+skeleton = NodePath("../..")
+
+[node name="NoisetteMeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.25, 0, 0, 0, -0.25, 3.7749e-08, 0, -3.7749e-08, -0.25, 0, -0.5, 0)
+mesh = ExtResource("3_x7owv")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.0346689)
+shape = SubResource("BoxShape3D_fnt54")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l0ccy")
+}
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

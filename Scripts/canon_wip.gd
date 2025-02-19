@@ -46,9 +46,7 @@ func _process(delta: float) -> void:
 	#raycast.force_raycast_update()
 	#if Input.is_action_just_released("ui_home"):
 		#if raycast.is_colliding():
-			#print("is colliding")
 			#var hit_pos = raycast.get_collision_point()  # Obtient la position de collision
-			#print(hit_pos)
 			## hit_pos.y = hit_pos.y + 3
 			#var item_instance = item_scene.instantiate()  # Instancie l'objet
 			#item_instance.position = hit_pos  # Positionne l'objet sur le terrain
@@ -64,7 +62,6 @@ func shoot_projectile(force: float):
 
 		var direction = -canon.global_transform.basis.z.normalized()
 		if raycast.is_colliding():
-			print(raycast)
 			direction = (raycast.get_collision_point() - canon.global_transform.origin).normalized()
 
 		projectile.apply_impulse(direction * force)

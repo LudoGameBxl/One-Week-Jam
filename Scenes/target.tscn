@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxhsai87tv5o0"]
+[gd_scene load_steps=8 format=3 uid="uid://bxhsai87tv5o0"]
 
 [ext_resource type="Script" path="res://Scripts/target.gd" id="1_dhk0n"]
 [ext_resource type="Texture2D" uid="uid://cvmypcexd7mjy" path="res://assets/test/concept.PNG" id="1_l5831"]
+[ext_resource type="PackedScene" uid="uid://f53873fhm522" path="res://Scenes/trees.tscn" id="2_jlmx7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kg6ar"]
 
@@ -28,6 +29,7 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_kg6ar")
 script = ExtResource("1_dhk0n")
+tree_scene = ExtResource("2_jlmx7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

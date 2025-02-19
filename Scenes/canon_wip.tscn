@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b44kiccllw5on"]
 
 [ext_resource type="PackedScene" uid="uid://b1vevib056u0h" path="res://assets/concept/canon_wip.glb" id="1_d7ekk"]
-[ext_resource type="Script" path="res://Scenes/canon_wip.gd" id="2_xxxu1"]
+[ext_resource type="Script" path="res://Scripts/canon_wip.gd" id="2_xxxu1"]
 [ext_resource type="PackedScene" uid="uid://ltsaxn73776d" path="res://Scenes/noisetteBullet.tscn" id="3_ypkqs"]
 [ext_resource type="PackedScene" uid="uid://bxhsai87tv5o0" path="res://Scenes/target.tscn" id="4_0nnu1"]
 
