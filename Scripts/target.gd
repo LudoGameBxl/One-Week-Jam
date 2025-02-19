@@ -16,6 +16,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		axis_lock_linear_y = false
 		axis_lock_linear_z = false
 		axis_lock_linear_x = false
+		
+		SignalManager.touched_target.emit(1)
 		#var tween = get_tree().create_tween()
 		#tween.tween_property(self, "scale", Vector3(0, 0,0 ), 1)
 		#rotation_degrees.x = -90
