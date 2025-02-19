@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ltsaxn73776d"]
+
+[ext_resource type="PackedScene" uid="uid://2ay3fj5hjao6" path="res://assets/concept/noisette.glb" id="1_gjgfa"]
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_tfa23"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2e815"]
+radius = 1.37358
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["bullet"]]
+script = ExtResource("1_tfa23")
+
+[node name="noisette2" parent="." instance=ExtResource("1_gjgfa")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+shape = SubResource("SphereShape3D_2e815")
