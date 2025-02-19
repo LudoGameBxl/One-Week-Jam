@@ -41,16 +41,28 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2.36561, 0.823016, 3.3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.769148, 4.53321)
 
 [node name="TargetNode3D" parent="TargetsContainer" instance=ExtResource("2_utmef")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1.15807, -0.797976, -21.4736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.769148, -4.58429)
 
 [node name="TargetNode3D2" parent="TargetsContainer" instance=ExtResource("2_utmef")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3.15747, -0.72591, -7.17599)
-
-[node name="TargetNode3D3" parent="TargetsContainer" instance=ExtResource("2_utmef")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2.17104, -0.738686, -5.18782)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.769148, -9.47395)
 
 [node name="TargetNode3D4" parent="TargetsContainer" instance=ExtResource("2_utmef")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1.45674, -0.701914, -6.10947)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36145, -0.769148, -9.47395)
+
+[node name="TargetNode3D5" parent="TargetsContainer" instance=ExtResource("2_utmef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36145, -0.769148, -14.7183)
+
+[node name="TargetNode3D6" parent="TargetsContainer" instance=ExtResource("2_utmef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36145, -0.769148, -20.2029)
+
+[node name="TargetNode3D7" parent="TargetsContainer" instance=ExtResource("2_utmef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73676, -0.769148, -20.2029)
+
+[node name="TargetNode3D8" parent="TargetsContainer" instance=ExtResource("2_utmef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191032, -0.769148, -20.2029)
+
+[node name="TargetNode3D3" parent="TargetsContainer" instance=ExtResource("2_utmef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.57605, -0.769148, -9.47395)
 
 [node name="TerrainNode3D" type="Node3D" parent="."]
 
