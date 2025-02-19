@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b44kiccllw5on"]
+
+[ext_resource type="PackedScene" uid="uid://b1vevib056u0h" path="res://assets/concept/canon_wip.glb" id="1_d7ekk"]
+[ext_resource type="Script" path="res://Scenes/canon_wip.gd" id="2_xxxu1"]
+[ext_resource type="PackedScene" uid="uid://c3ibg7r64teo4" path="res://Scenes/bullet.tscn" id="3_e0ibj"]
+[ext_resource type="PackedScene" uid="uid://bxhsai87tv5o0" path="res://Scenes/target.tscn" id="4_0nnu1"]
+
+[node name="canon_wip" node_paths=PackedStringArray("raycast", "canon") instance=ExtResource("1_d7ekk")]
+script = ExtResource("2_xxxu1")
+projectile_scene = ExtResource("3_e0ibj")
+raycast = NodePath("support_canon/RayCast3D")
+canon = NodePath("support_canon")
+item_scene = ExtResource("4_0nnu1")
+
+[node name="support_canon" parent="." index="11"]
+transform = Transform3D(0.578558, 0, 0.111046, 0, 0.589118, 0, -0.111046, 0, 0.578558, -9.48771e-05, 3.99289, -0.000729218)
+
+[node name="RayCast3D" type="RayCast3D" parent="support_canon" index="0"]
+transform = Transform3D(1.69745, 0, 0, 0, 1.69745, 0, 0, 0, 1.69745, 0, 0.3, 0)
+target_position = Vector3(0, 0, -100)

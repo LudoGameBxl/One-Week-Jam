@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://brs2q3aa32omo"]
+
+[ext_resource type="Script" path="res://Scripts/spawn_point_zone.gd" id="1_tj21d"]
+[ext_resource type="PackedScene" uid="uid://bxhsai87tv5o0" path="res://Scenes/target.tscn" id="2_5v1f5"]
+
+[node name="SpawnPointZone" type="Node3D"]
+script = ExtResource("1_tj21d")
+item_scene = ExtResource("2_5v1f5")
