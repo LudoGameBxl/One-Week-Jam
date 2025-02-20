@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b44kiccllw5on"]
+[gd_scene load_steps=6 format=3 uid="uid://b44kiccllw5on"]
 
 [ext_resource type="PackedScene" uid="uid://b1vevib056u0h" path="res://assets/concept/canon_wip.glb" id="1_d7ekk"]
 [ext_resource type="Script" path="res://Scripts/canon_wip.gd" id="2_xxxu1"]
 [ext_resource type="PackedScene" uid="uid://ltsaxn73776d" path="res://Scenes/noisetteBullet.tscn" id="3_ypkqs"]
 [ext_resource type="PackedScene" uid="uid://bxhsai87tv5o0" path="res://Scenes/target.tscn" id="4_0nnu1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfxcg"]
+distance_fade_mode = 1
 
 [node name="canon_wip" node_paths=PackedStringArray("raycast", "canon") instance=ExtResource("1_d7ekk")]
 script = ExtResource("2_xxxu1")
@@ -11,6 +14,9 @@ projectile_scene = ExtResource("3_ypkqs")
 raycast = NodePath("support_canon/RayCast3D")
 canon = NodePath("support_canon")
 item_scene = ExtResource("4_0nnu1")
+
+[node name="souche" parent="." index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_jfxcg")
 
 [node name="support_canon" parent="." index="11"]
 transform = Transform3D(0.578558, 0, 0.111046, 0, 0.589118, 0, -0.111046, 0, 0.578558, -9.48771e-05, 3.99289, -0.000729218)
