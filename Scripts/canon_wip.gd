@@ -1,14 +1,15 @@
 extends Node3D
 
+@export var bullets_array_scene : Array[PackedScene]
 @export var rotation_speed  = 0.5
 var rotation_range_v: float = 40
 var rotation_range_h: float = 55
-@export var projectile_scene: PackedScene  # Référence à la scène du projectile
+#@export var projectile_scene: PackedScene  # Référence à la scène du projectile
 @export var max_force: float = 50.0  # Force max du tir
 @export var charge_rate: float = 20.0  # Vitesse de chargement
-
 @export var raycast: RayCast3D  # RayCast pour la direction
 @export var canon: MeshInstance3D  # RayCast pour la direction
+
 
 var charge_time: float = 0.0
 var charging: bool = false
@@ -54,8 +55,9 @@ func _process(delta: float) -> void:
 		
 
 func shoot_projectile(force: float):
-	if projectile_scene:
-		var projectile = projectile_scene.instantiate() as RigidBody3D
+	print(bullets_array_scene)
+	if bullets_array_scene[2]:
+		var projectile = bullets_array_scene[2].instantiate() as RigidBody3D
 		get_parent().add_child(projectile) 
 
 		projectile.global_transform.origin = canon.global_transform.origin
@@ -65,3 +67,14 @@ func shoot_projectile(force: float):
 			direction = (raycast.get_collision_point() - canon.global_transform.origin).normalized()
 
 		projectile.apply_impulse(direction * force)
+	#if projectile_scene:d
+		#var projectile = projectile_scene.instantiate() as RigidBody3D
+		#get_parent().add_child(projectile) 
+#
+		#projectile.global_transform.origin = canon.global_transform.origin
+#
+		#var direction = -canon.global_transform.basis.z.normalized()
+		#if raycast.is_colliding():
+			#direction = (raycast.get_collision_point() - canon.global_transform.origin).normalized()
+#
+		#projectile.apply_impulse(direction * force)

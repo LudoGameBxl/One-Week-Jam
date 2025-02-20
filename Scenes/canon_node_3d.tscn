@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bce4o0qcd2d6b"]
+[gd_scene load_steps=7 format=3 uid="uid://cmg2fvlh67rrc"]
 
 [ext_resource type="Script" path="res://Scripts/canon_node_3d.gd" id="1_lnfj1"]
-[ext_resource type="PackedScene" uid="uid://c3ibg7r64teo4" path="res://Scenes/bullet.tscn" id="2_paoll"]
+[ext_resource type="PackedScene" uid="uid://c3ibg7r64teo4" path="res://Scenes/actors/bullets/bullet.tscn" id="2_w4nff"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eti3t"]
 albedo_color = Color(0.308594, 0.308594, 0.308594, 1)
@@ -18,7 +18,7 @@ material = SubResource("StandardMaterial3D_jptn3")
 [node name="CanonNode3D" type="Node3D"]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 script = ExtResource("1_lnfj1")
-projectile_scene = ExtResource("2_paoll")
+projectile_scene = ExtResource("2_w4nff")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.9)

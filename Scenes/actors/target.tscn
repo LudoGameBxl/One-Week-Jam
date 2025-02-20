@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxhsai87tv5o0"]
+
+[ext_resource type="Script" path="res://Scripts/target.gd" id="1_u8iqk"]
+[ext_resource type="Texture2D" uid="uid://cvmypcexd7mjy" path="res://assets/test/concept.PNG" id="2_n0lcq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kg6ar"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t6aq8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p18w5"]
+
+[sub_resource type="PackedScene" id="PackedScene_0bxit"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("TreeNode3D", "StaticBody3D", "axis_lock_linear_x", "axis_lock_linear_y", "axis_lock_linear_z", "axis_lock_angular_x", "axis_lock_angular_y", "axis_lock_angular_z", "CSGMesh3D", "CSGMesh3D", "transform", "mesh", "material", "CSGMesh3D2", "CSGMesh3D", "transform", "mesh", "material"),
+"node_count": 3,
+"node_paths": [NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 6, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 0, 1073741824, 0, 9, 8, -1, 3, 10, 6, 11, 7, 12, 8, 0, 1073741825, 0, 14, 13, -1, 3, 15, 9, 16, 10, 17, 11, 0),
+"variants": [true, true, true, true, true, true, Transform3D(1.02594, 0.0179952, 0, -0.046157, 0.399982, 0, 0, 0, 1, -0.191045, 0.345981, -0.0431087), SubResource("CylinderMesh_t6aq8"), SubResource("StandardMaterial3D_p18w5"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.945808, 0.893747, 0), SubResource("CylinderMesh_t6aq8"), SubResource("StandardMaterial3D_p18w5")],
+"version": 3
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbgws"]
+albedo_texture = ExtResource("2_n0lcq")
+uv1_scale = Vector3(2.92, 2.125, 2.92)
+uv1_triplanar_sharpness = 0.732043
+grow_amount = 0.085
+
+[sub_resource type="BoxMesh" id="BoxMesh_ceeda"]
+size = Vector3(1, 1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fnt54"]
+size = Vector3(1, 1, 0.121155)
+
+[node name="TargetNode3D" type="RigidBody3D"]
+collision_layer = 3
+collision_mask = 3
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_kg6ar")
+script = ExtResource("1_u8iqk")
+tree_scene = SubResource("PackedScene_0bxit")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_lbgws")
+mesh = SubResource("BoxMesh_ceeda")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.00180054)
+shape = SubResource("BoxShape3D_fnt54")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.0346689)
+shape = SubResource("BoxShape3D_fnt54")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq0k6g7qh5d1w"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_m5xff"]
+[ext_resource type="PackedScene" uid="uid://cuqskljqj6jw6" path="res://assets/concept/pomme_de_pinglb.glb" id="2_v4sgt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dosyf"]
+radius = 0.623899
+height = 1.31541
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["bullet"]]
+script = ExtResource("1_m5xff")
+
+[node name="pomme_de_pinglb" parent="." instance=ExtResource("2_v4sgt")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.525797, 0)
+shape = SubResource("CapsuleShape3D_dosyf")

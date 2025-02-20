@@ -11,7 +11,18 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc"):
 		hud.hide()
 		var menu_scene_instantiate = menu_scene.instantiate()
+		menu_scene_instantiate.show()
 		$UI/Menus.add_child(menu_scene_instantiate)
+	
+	if event.is_action_pressed("slot_1"):
+		SignalManager.current_bullet_selected.emit(1)
+		pass
+	if event.is_action_pressed("slot_2"):
+		SignalManager.current_bullet_selected.emit(2)
+		pass
+	if event.is_action_pressed("slot_3"):
+		SignalManager.current_bullet_selected.emit(3)
+		pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

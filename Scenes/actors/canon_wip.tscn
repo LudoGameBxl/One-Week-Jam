@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://b44kiccllw5on"]
+[gd_scene load_steps=8 format=3 uid="uid://b44kiccllw5on"]
 
 [ext_resource type="PackedScene" uid="uid://b1vevib056u0h" path="res://assets/concept/canon_wip.glb" id="1_d7ekk"]
 [ext_resource type="Script" path="res://Scripts/canon_wip.gd" id="2_xxxu1"]
-[ext_resource type="PackedScene" uid="uid://ltsaxn73776d" path="res://Scenes/noisetteBullet.tscn" id="3_ypkqs"]
-[ext_resource type="PackedScene" uid="uid://bxhsai87tv5o0" path="res://Scenes/target.tscn" id="4_0nnu1"]
+[ext_resource type="PackedScene" uid="uid://c3ibg7r64teo4" path="res://Scenes/actors/bullets/bullet.tscn" id="3_3jgql"]
+[ext_resource type="PackedScene" uid="uid://ltsaxn73776d" path="res://Scenes/actors/bullets/noisetteBullet.tscn" id="3_myfi1"]
+[ext_resource type="PackedScene" uid="uid://bxhsai87tv5o0" path="res://Scenes/actors/target.tscn" id="4_0nnu1"]
+[ext_resource type="PackedScene" uid="uid://cq0k6g7qh5d1w" path="res://Scenes/actors/bullets/PingBullet.tscn" id="5_m3iy0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfxcg"]
 distance_fade_mode = 1
 
 [node name="canon_wip" node_paths=PackedStringArray("raycast", "canon") instance=ExtResource("1_d7ekk")]
 script = ExtResource("2_xxxu1")
-projectile_scene = ExtResource("3_ypkqs")
+bullets_array_scene = Array[PackedScene]([ExtResource("3_3jgql"), ExtResource("3_myfi1"), ExtResource("5_m3iy0")])
 raycast = NodePath("support_canon/RayCast3D")
 canon = NodePath("support_canon")
 item_scene = ExtResource("4_0nnu1")
