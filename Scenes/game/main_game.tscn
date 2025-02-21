@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bav5qarx5mwla"]
 
 [ext_resource type="Script" path="res://Scripts/main_game.gd" id="1_ifi6g"]
-[ext_resource type="PackedScene" uid="uid://bpukwg78kpfc5" path="res://Scenes/game/level.tscn" id="3_6mgv3"]
 [ext_resource type="PackedScene" uid="uid://cs8dsiyo0626c" path="res://Scenes/ui/hud.tscn" id="3_msd76"]
+[ext_resource type="PackedScene" uid="uid://n7bi03v6ewjg" path="res://Scenes/game/level2.tscn" id="4_oqwcv"]
 [ext_resource type="PackedScene" uid="uid://dhm01xjkk5yjm" path="res://Scenes/ui/main_menu.tscn" id="4_rtwiv"]
 
 [node name="MainGame" type="Node3D" node_paths=PackedStringArray("targets_container")]
@@ -26,4 +26,4 @@ grow_vertical = 2
 
 [node name="MainMenu" parent="UI/Menus" instance=ExtResource("4_rtwiv")]
 layout_mode = 1
-level_scene = ExtResource("3_6mgv3")
+level_scene = ExtResource("4_oqwcv")
