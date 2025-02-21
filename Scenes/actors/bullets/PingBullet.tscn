@@ -9,6 +9,7 @@ height = 1.31541
 
 [node name="RigidBody3D" type="RigidBody3D" groups=["bullet"]]
 script = ExtResource("1_m5xff")
+bullet_type = "bullet_3"
 
 [node name="pomme_de_pinglb" parent="." instance=ExtResource("2_v4sgt")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)

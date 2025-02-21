@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://bpukwg78kpfc5"]
+[gd_scene load_steps=15 format=4 uid="uid://n7bi03v6ewjg"]
 
-[ext_resource type="PackedScene" uid="uid://dn7yp0x0g1tt5" path="res://Scenes/actors/canon_wip.tscn" id="1_8clvd"]
-[ext_resource type="PackedScene" uid="uid://bgodwmf5w7qn4" path="res://Scenes/actors/target_fix.tscn" id="3_0nrji"]
-[ext_resource type="PackedScene" uid="uid://ccwq6mksj10r" path="res://Scenes/actors/field_wip.tscn" id="4_rjxx8"]
-[ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="5_bxs6t"]
-[ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="6_kwi7s"]
-[ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="7_5oatc"]
+[ext_resource type="PackedScene" uid="uid://dn7yp0x0g1tt5" path="res://Scenes/actors/canon_wip.tscn" id="1_ymus0"]
+[ext_resource type="PackedScene" uid="uid://bgodwmf5w7qn4" path="res://Scenes/actors/target_fix.tscn" id="2_uxo0l"]
+[ext_resource type="PackedScene" uid="uid://ccwq6mksj10r" path="res://Scenes/actors/field_wip.tscn" id="3_wgxc1"]
+[ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="4_v0413"]
+[ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="5_4wq7b"]
+[ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="6_52v01"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5a5w"]
 albedo_color = Color(0.429688, 0.238023, 0.0677297, 1)
@@ -26,7 +26,7 @@ fog_density = 0.1153
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r5w47"]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("5_bxs6t")
+shader = ExtResource("4_v0413")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_frames = Vector2(1, 1)
 shader_parameter/light_mode = 1
@@ -49,7 +49,7 @@ shader_parameter/grass_size_y = 1.0
 shader_parameter/interactive_mode = true
 shader_parameter/interactive_level_xz = 3.0
 shader_parameter/interactive_level_y = 0.3
-shader_parameter/texture_albedo = ExtResource("6_kwi7s")
+shader_parameter/texture_albedo = ExtResource("5_4wq7b")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pt3kf"]
 _surfaces = [{
@@ -74,7 +74,7 @@ buffer = PackedFloat32Array(-0.59083, 0, 0.806796, -14.0176, 0, 1, 0, -2.48138, 
 
 [node name="Level" type="Node3D"]
 
-[node name="canon_wip" parent="." instance=ExtResource("1_8clvd")]
+[node name="canon_wip" parent="." instance=ExtResource("1_ymus0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85956, 0.079495, 1.96737)
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -85,79 +85,79 @@ fov = 80.2443
 [node name="TargetsContainer" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.997564, -0.0697565, 0, 0.0697565, 0.997564, 0, 2.10732, -12.5208)
 
-[node name="TargetFix" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.500548, -0.0350008)
 
-[node name="TargetFix2" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix2" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.73098, 0.500548, -0.0350008)
 
-[node name="TargetFix3" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix3" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10.7678, 0.500548, -0.0350008)
 
-[node name="TargetFix4" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix4" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.60324, 0.77783, 3.93031)
 
-[node name="TargetFix5" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix5" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.43599, 0.77783, 3.93031)
 
-[node name="TargetFix6" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix6" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.27431, -28.3005)
 
-[node name="TargetFix7" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix7" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.73098, 3.17746, -28.2938)
 
-[node name="TargetFix8" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix8" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10.7678, 3.67593, -28.3286)
 
-[node name="TargetFix9" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix9" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.60324, 3.14057, -24.3065)
 
-[node name="TargetFix10" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix10" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.43599, 2.22697, -24.2426)
 
-[node name="TargetFix11" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix11" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.92168, -19.0427)
 
-[node name="TargetFix12" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix12" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.73098, 3.82483, -19.036)
 
-[node name="TargetFix13" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix13" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10.7678, 4.3233, -19.0708)
 
-[node name="TargetFix14" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix14" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.60324, 3.78794, -15.0487)
 
-[node name="TargetFix15" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix15" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.43599, 2.87434, -14.9848)
 
-[node name="TargetFix16" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix16" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -10.6842, 2.12307, -15.9032)
 
-[node name="TargetFix17" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix17" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.95324, 0.768131, -15.8084)
 
-[node name="TargetFix18" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix18" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.08358, 0.0837301, -15.7605)
 
-[node name="TargetFix19" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix19" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.2875, 0.464334, -11.8025)
 
-[node name="TargetFix20" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix20" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.24823, -0.00820136, -11.7694)
 
-[node name="TargetFix21" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix21" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -10.6842, 0.155302, -6.46247)
 
-[node name="TargetFix22" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix22" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.95324, -0.115889, -6.44351)
 
-[node name="TargetFix23" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix23" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.08358, -0.274209, -6.43245)
 
-[node name="TargetFix24" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix24" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.2875, 1.44597, -2.56802)
 
-[node name="TargetFix25" parent="TargetsContainer" instance=ExtResource("3_0nrji")]
+[node name="TargetFix25" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.24823, 0.693779, -2.51542)
 
 [node name="TerrainNode3D" type="Node3D" parent="."]
@@ -167,7 +167,7 @@ transform = Transform3D(12.82, 0, 0, 0, 1.0189, 0, 0, 0, 6.18025, -26.3559, -1.3
 mesh = SubResource("BoxMesh_ts0pl")
 skeleton = NodePath("../../..")
 
-[node name="field_wip" parent="TerrainNode3D" instance=ExtResource("4_rjxx8")]
+[node name="field_wip" parent="TerrainNode3D" instance=ExtResource("3_wgxc1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -38.1885)
 
 [node name="Environement" type="Node3D" parent="."]
@@ -185,8 +185,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.82265, -3.75813)
 [node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44069, 5.95964, -34.769)
 multimesh = SubResource("MultiMesh_k03j3")
-script = ExtResource("7_5oatc")
-texture_albedo = ExtResource("6_kwi7s")
+script = ExtResource("6_52v01")
+texture_albedo = ExtResource("5_4wq7b")
 sgt_radius = 5.6
 sgt_density = 25
 sgt_scale = 1.0

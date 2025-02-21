@@ -9,6 +9,7 @@ height = 2.9396
 
 [node name="NoisetteRigidBody3D" type="RigidBody3D" groups=["bullet"]]
 script = ExtResource("1_ye25d")
+bullet_type = "bullet_2"
 
 [node name="noisette2" parent="." instance=ExtResource("2_2ryvi")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
