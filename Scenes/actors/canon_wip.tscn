@@ -1,28 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://b44kiccllw5on"]
+[gd_scene load_steps=3 format=3 uid="uid://dn7yp0x0g1tt5"]
 
-[ext_resource type="PackedScene" uid="uid://b1vevib056u0h" path="res://assets/concept/canon_wip.glb" id="1_d7ekk"]
-[ext_resource type="Script" path="res://Scripts/canon_wip.gd" id="2_xxxu1"]
-[ext_resource type="PackedScene" uid="uid://c3ibg7r64teo4" path="res://Scenes/actors/bullets/bullet.tscn" id="3_3jgql"]
-[ext_resource type="PackedScene" uid="uid://ltsaxn73776d" path="res://Scenes/actors/bullets/noisetteBullet.tscn" id="3_myfi1"]
-[ext_resource type="PackedScene" uid="uid://bxhsai87tv5o0" path="res://Scenes/actors/target.tscn" id="4_0nnu1"]
-[ext_resource type="PackedScene" uid="uid://cq0k6g7qh5d1w" path="res://Scenes/actors/bullets/PingBullet.tscn" id="5_m3iy0"]
+[ext_resource type="PackedScene" uid="uid://b1vevib056u0h" path="res://assets/concept/canon_wip.glb" id="1_nxlst"]
+[ext_resource type="Script" path="res://Scripts/canon_wip.gd" id="2_d7svn"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfxcg"]
-distance_fade_mode = 1
+[node name="canon_wip" node_paths=PackedStringArray("raycast_point", "canon", "raycast") instance=ExtResource("1_nxlst")]
+script = ExtResource("2_d7svn")
+raycast_point = NodePath("engrenage/sphere/demi_sphere/canon/Node3D")
+canon = NodePath("engrenage/sphere/demi_sphere")
+raycast = NodePath("engrenage/sphere/demi_sphere/canon/Node3D/RayCast3D")
 
-[node name="canon_wip" node_paths=PackedStringArray("raycast", "canon") instance=ExtResource("1_d7ekk")]
-script = ExtResource("2_xxxu1")
-bullets_array_scene = Array[PackedScene]([ExtResource("3_3jgql"), ExtResource("3_myfi1"), ExtResource("5_m3iy0")])
-raycast = NodePath("support_canon/RayCast3D")
-canon = NodePath("support_canon")
-item_scene = ExtResource("4_0nnu1")
+[node name="engrenage" parent="." index="2"]
+transform = Transform3D(-0.537896, 0, -0.0928637, 0, 0.545854, 0, 0.0928637, 0, -0.537896, -0.0111997, 2.55281, -0.00149484)
 
-[node name="souche" parent="." index="5"]
-surface_material_override/0 = SubResource("StandardMaterial3D_jfxcg")
+[node name="demi_sphere" parent="engrenage/sphere" index="0"]
+transform = Transform3D(0.979169, 0.0603445, 0.193874, -0.0911483, 0.983839, 0.154122, -0.18144, -0.168583, 0.968844, 0, 0, 0)
 
-[node name="support_canon" parent="." index="11"]
-transform = Transform3D(0.578558, 0, 0.111046, 0, 0.589118, 0, -0.111046, 0, 0.578558, -9.48771e-05, 3.99289, -0.000729218)
+[node name="Node3D" type="Node3D" parent="engrenage/sphere/demi_sphere/canon" index="0"]
+transform = Transform3D(1, -5.21541e-08, 1.49012e-07, -1.41561e-07, 1, 4.02331e-07, -5.96046e-08, -1.04308e-07, 0.999999, 0.136516, -1.0677, -2.50896)
 
-[node name="RayCast3D" type="RayCast3D" parent="support_canon" index="0"]
-transform = Transform3D(1.69745, 0, 0, 0, 1.69745, 0, 0, 0, 1.69745, 0, 0.3, 0)
-target_position = Vector3(0, 0, -100)
+[node name="RayCast3D" type="RayCast3D" parent="engrenage/sphere/demi_sphere/canon/Node3D" index="0"]
+target_position = Vector3(0, 0, -5)
+
+[node name="AnimationPlayer" parent="." index="4"]
+autoplay = "engrenageAction"

@@ -4,6 +4,7 @@ extends Control
 @onready var label: Label = %Label
 @onready var slot_grid_container: GridContainer = %SlotGridContainer
 @onready var slot_1: Panel = $MarginContainer/HBoxContainer2/SlotGridContainer/Slot_1
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 func _ready() -> void:
 	hide()
@@ -23,7 +24,8 @@ func touched_target(score):
 
 func new_bullet_selected(new_slot_active_number)-> void:
 #	TODO: finish this fonction change bg color on select 
-	slot_1.set_bg_color()
+	#print(slot_grid_container.get_child(new_slot_active_number - 1))
+	animation_player.play("slot_" + str(new_slot_active_number))
 	pass
 	#for slot in slot_grid_container.get_children():
 		#slot.bg_color = Color.LAWN_GREEN
