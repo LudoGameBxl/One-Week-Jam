@@ -35,8 +35,7 @@ var current_bullet_selected = 0
 func _ready() -> void:
 	SignalManager.current_bullet_selected.connect(new_bullet_selected)
 	SignalManager.touched_target.connect(touched_target)
-	
-	target_count = targets_container.get_child_count()
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -114,5 +113,6 @@ func new_bullet_selected(bullet_number):
 	current_bullet_selected = bullet_number - 1
 
 func touched_target(score):
+	target_count = targets_container.get_child_count()
 	if target_count <= SignalManager.current_score:
 		print('win')

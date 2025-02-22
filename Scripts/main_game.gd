@@ -27,7 +27,7 @@ func _input(event: InputEvent) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalManager.current_scene_menu.connect(current_scene_menu)
-	get_tree().paused = true
+	#get_tree().paused = true
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
