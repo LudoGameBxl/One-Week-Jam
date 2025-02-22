@@ -7,7 +7,7 @@ extends Control
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 func _ready() -> void:
-	hide()
+	#hide()
 	SignalManager.current_charge_time.connect(update_progress_bar)
 	SignalManager.touched_target.connect(touched_target)
 	SignalManager.current_bullet_selected.connect(new_bullet_selected)

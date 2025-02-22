@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn7yp0x0g1tt5"]
+[gd_scene load_steps=5 format=3 uid="uid://dn7yp0x0g1tt5"]
 
 [ext_resource type="PackedScene" uid="uid://b1vevib056u0h" path="res://assets/concept/canon_wip.glb" id="1_nxlst"]
 [ext_resource type="Script" path="res://Scripts/canon_wip.gd" id="2_d7svn"]
+[ext_resource type="AudioStream" uid="uid://bnf132vcka7ss" path="res://assets/sounds/cannon-fire.mp3" id="3_2aa3y"]
+[ext_resource type="Texture2D" uid="uid://dk01pja4758jd" path="res://assets/concept/target-2304567_640.png" id="4_3jwmk"]
 
-[node name="canon_wip" node_paths=PackedStringArray("raycast_point", "canon", "raycast") instance=ExtResource("1_nxlst")]
+[node name="canon_wip" node_paths=PackedStringArray("raycast_point", "canon", "raycast", "target") instance=ExtResource("1_nxlst")]
 script = ExtResource("2_d7svn")
 raycast_point = NodePath("engrenage/sphere/demi_sphere/canon/Node3D")
 canon = NodePath("engrenage/sphere/demi_sphere")
 raycast = NodePath("engrenage/sphere/demi_sphere/canon/Node3D/RayCast3D")
+target = NodePath("Sprite3D")
 
 [node name="engrenage" parent="." index="2"]
 transform = Transform3D(-0.537896, 0, -0.0928637, 0, 0.545854, 0, 0.0928637, 0, -0.537896, -0.0111997, 2.55281, -0.00149484)
@@ -25,3 +28,11 @@ target_position = Vector3(0, 0, -100)
 [node name="AnimationPlayer" parent="." index="4"]
 autoplay = "engrenageAction"
 speed_scale = 0.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("3_2aa3y")
+volume_db = -20.0
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="6"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+texture = ExtResource("4_3jwmk")

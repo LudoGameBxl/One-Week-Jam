@@ -2,7 +2,6 @@ extends Node3D
 
 const NOISETTE_CUBE_001 = preload("res://assets/concept/noisette.tres")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@export var sign_mesh_instance_3d: MeshInstance3D
 const ARBRE_01 = preload("res://Scenes/arbre_01.tscn")
 const ARBRE_02 = preload("res://Scenes/arbre_02.tscn")
 var current_position = Vector3.ZERO
@@ -44,7 +43,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		SignalManager.touched_target.emit(1)
 		animation_player.play("rotate")
 		await get_tree().create_timer(1.0).timeout
-		sign_mesh_instance_3d.hide()
+		super_market_sign.hide()
+		house_sig_n.hide()
 		played = true
 		#var tween = get_tree().create_tween()
 		#tween.tween_property(self, "scale", Vector3(0,0,0), 1)
