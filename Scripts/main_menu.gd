@@ -7,9 +7,9 @@ extends Control
 @onready var hud: Control = $"../../HUD"
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	play_button.pressed.connect(play_button_pressed)
 	quit_button.pressed.connect(quit_button_pressed)
-
 
 func play_button_pressed() -> void:
 	if level_scene != null:

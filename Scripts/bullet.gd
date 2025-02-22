@@ -1,6 +1,6 @@
 class_name Projectile extends RigidBody3D
 
-@export var lifetime: float = 5.0 
+@export var lifetime: float = 15.0 
 @export var bullet_type = "bullet_1"
 
 func _ready():

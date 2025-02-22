@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhm01xjkk5yjm"]
+[gd_scene load_steps=3 format=3 uid="uid://dhm01xjkk5yjm"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_2ui1i"]
+[ext_resource type="PackedScene" uid="uid://n7bi03v6ewjg" path="res://Scenes/game/level2.tscn" id="2_i8cev"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2ui1i")
+level_scene = ExtResource("2_i8cev")
 
 [node name="Panel" type="Panel" parent="."]
 z_index = 3

@@ -1,17 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgodwmf5w7qn4"]
+[gd_scene load_steps=8 format=3 uid="uid://bgodwmf5w7qn4"]
 
 [ext_resource type="Script" path="res://Scripts/target_fix.gd" id="1_rf5k8"]
-[ext_resource type="Texture2D" uid="uid://bp011ud7j3pfk" path="res://assets/test/concept_02.PNG" id="2_8c2mw"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tengy"]
-albedo_texture = ExtResource("2_8c2mw")
-
-[sub_resource type="BoxMesh" id="BoxMesh_ceeda"]
-material = SubResource("StandardMaterial3D_tengy")
-size = Vector3(1, 1, 0.1)
+[ext_resource type="PackedScene" uid="uid://ck7c8l0hjl1tr" path="res://Scenes/actors/supermarket_sign.tscn" id="2_b0lp1"]
+[ext_resource type="PackedScene" uid="uid://c3k1bs2t0wem6" path="res://Scenes/actors/house_sign.tscn" id="2_ryqdm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnt54"]
-size = Vector3(1, 1, 0.121155)
+size = Vector3(2.94525, 2.90462, 0.300249)
 
 [sub_resource type="Animation" id="Animation_hjf1w"]
 length = 2.0
@@ -62,24 +56,26 @@ _data = {
 "rotate": SubResource("Animation_y0aaf")
 }
 
-[node name="TargetFix" type="Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+[node name="TargetFix" type="Node3D" node_paths=PackedStringArray("sign_mesh_instance_3d")]
 script = ExtResource("1_rf5k8")
+sign_mesh_instance_3d = NodePath("Node3D/SuperMarketSign")
 
 [node name="Node3D" type="Node3D" parent="."]
 
-[node name="SignMeshInstance3D" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_ceeda")
-skeleton = NodePath("../..")
+[node name="HouseSigN" parent="Node3D" instance=ExtResource("2_ryqdm")]
+unique_name_in_owner = true
+
+[node name="SuperMarketSign" parent="Node3D" instance=ExtResource("2_b0lp1")]
+unique_name_in_owner = true
+transform = Transform3D(1.47286, 0, 0, 0, -4.58034e-09, 1.47286, 0, -0.104786, -6.43808e-08, 0, 1.49389, 0)
+visible = false
 
 [node name="tree_container" type="Node3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, -1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.0346689)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000457764, 1.49908, -0.00536729)
 shape = SubResource("BoxShape3D_fnt54")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

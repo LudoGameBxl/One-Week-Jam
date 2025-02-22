@@ -25,7 +25,6 @@ func spawn_item():
 	await get_tree().process_frame
 
 	if raycast.is_colliding():
-		print("collidinggggggggggggg")
 		var collision_point = raycast.get_collision_point()
 		spawn_position.y = collision_point.y  # Ajuster la hauteur
 

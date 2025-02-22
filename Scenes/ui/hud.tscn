@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cs8dsiyo0626c"]
+[gd_scene load_steps=21 format=3 uid="uid://cs8dsiyo0626c"]
 
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_1yo5r"]
 [ext_resource type="Texture2D" uid="uid://pv80haf6tep5" path="res://assets/concept/dice_icon.png" id="2_dlko6"]
@@ -17,6 +17,19 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68ujs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oebh8"]
+
+[sub_resource type="Gradient" id="Gradient_hchnd"]
+offsets = PackedFloat32Array(0, 0.185185, 0.485597, 0.72428, 1)
+colors = PackedColorArray(0.539063, 0.045291, 0.0292016, 1, 0.666167, 0.699219, 0.0811426, 1, 0.177347, 0.802833, 0.321012, 1, 0.666167, 0.699219, 0.0811426, 1, 0.539063, 0.045291, 0.0292016, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ngmdo"]
+gradient = SubResource("Gradient_hchnd")
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_6y4hq"]
+frame_0/texture = SubResource("GradientTexture1D_ngmdo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hmism"]
+texture = SubResource("AnimatedTexture_6y4hq")
 
 [sub_resource type="Animation" id="Animation_uuvqk"]
 length = 0.001
@@ -359,6 +372,7 @@ text = "Score :  0"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxTexture_hmism")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

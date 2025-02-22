@@ -19,7 +19,9 @@ transform = Transform3D(0.979169, 0.0603445, 0.193874, -0.0911483, 0.983839, 0.1
 transform = Transform3D(1, -5.21541e-08, 1.49012e-07, -1.41561e-07, 1, 4.02331e-07, -5.96046e-08, -1.04308e-07, 0.999999, 0.136516, -1.0677, -2.50896)
 
 [node name="RayCast3D" type="RayCast3D" parent="engrenage/sphere/demi_sphere/canon/Node3D" index="0"]
-target_position = Vector3(0, 0, -5)
+transform = Transform3D(0.990728, 0.135263, 0.0126314, -0.131085, 0.927408, 0.350325, 0.0356717, -0.348733, 0.936541, 0.10478, 0.494329, 0.781868)
+target_position = Vector3(0, 0, -100)
 
 [node name="AnimationPlayer" parent="." index="4"]
 autoplay = "engrenageAction"
+speed_scale = 0.5

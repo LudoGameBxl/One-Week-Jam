@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=4 uid="uid://ck7c8l0hjl1tr"]
+
+[ext_resource type="Texture2D" uid="uid://bovrkkm4flpi1" path="res://assets/concept/panneau_supermarket_Material Base Color.png" id="1_32ohc"]
+[ext_resource type="Texture2D" uid="uid://c76fmcc44tpdy" path="res://assets/concept/panneau_supermarket_Material Roughness.png" id="2_o510q"]
+[ext_resource type="Texture2D" uid="uid://celw52tj6bu7b" path="res://assets/concept/panneau_supermarket_Material Normal.png" id="3_iliib"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhgcw"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_32ohc")
+metallic_texture = ExtResource("2_o510q")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_o510q")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 0.4
+normal_texture = ExtResource("3_iliib")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_aty88"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAAGAAQAAAACAAYACgAGAAIACgAJAAYACQAEAAYACQALAAQABQADAAEABQAHAAMACAACAAAACAAKAAIACwAAAAQACwAIAAAABQAIAAsABQABAAgAAQAKAAgAAQADAAoABwALAAkABwAFAAsAAwAJAAoAAwAHAAkA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/////wAAAAD//wAAAAAAAP///////wAA//8AAP//AAAAAP//AAAAAAAAAAAAAAAAAAD/////AAAAAAAA//8AAP///38AAAAAAAD/f///AAD///9///8AAAAA/38AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8wtlt"]
+resource_name = "panneau_supermarket_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("wwO3+MfjJwNd6lMQKNwM+4j3JwOI938dwwNTIMfjUxBd6lMQKNynIoj3UxBA/jUDKNy3+Mfjfx1d6icDwwMM+4j3UxAe/n8dKNxTIMfjUxBd6n8dwwOnIh7+UxBA/mAQXeonA/PwJwPz8FMQ8/B/HV3qUxDz8H8diPdTEKr3YBBd6lMQ8/BTEPPwUxCq9zUDXep/HfPwJwPz8FMQiPd/HQ=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAASAAwAAAAGABIAIQAUAAgAIQAdABQAHAANABMAHAAkAA0ADwAJAAMADwAVAAkAGAAHAAEAGAAgAAcAJQACAA4AJQAaAAIAEAAbACYAEAAFABsABAAiABkABAAKACIAFgAnAB4AFgARACcACwAfACMACwAXAB8A"),
+"material": SubResource("StandardMaterial3D_fhgcw"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("/////wAA////////AABU1f////8AAP////8AAAAA/7///wAAAABU1f//AAAAAP////////////////////9U1f////////+///8AAP///7///wAA//9U1f//AAD///+/AAD//wAA//8AAP//AABU1QAA//8AAP//AAAAAAAA/78AAAAAAAD//wAAAAAAAFTVAAD///////8AAP////9U1QAA//////+/AAAAAP///78AAAAA//9U1QAAAAD///+/////fwAAVNX///9/AABU1f///38AAP//////fwAA//8AAP9///9U1QAA/3////+/AAD/f///VNUAAP9/////v////3///1TV////f////7////9///9U1f///3////+/AAD/fwAAVNUAAP9/AAD//wAA/38AAP//AAD/fwAAVNX/f/+/qqpUVf8//78AAP9/qqpUVf8//7//f/+/qqpUVf9//38AAP9/qqpUVf9//3//f/+/VFWqqv8//78AAP9//z//v1RVqqr/f/+/VFWqqv9//38AAP9/VFWqqv9//3+qqlRVqqpUVf8//7//P/+/VFWqqv9//39UVaqq/3//f6qqVFX/f/9/qqpUVf9//39UVaqq/z//v/8//79UVaqq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_aty88")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bil8c"]
+data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, 0, 1, -1, 1, 1, 1, 1, 1, 1, 0, 1, -1, 0, 1, -1, 1, 1, -1, 0, 1, -1, 1, -1, -1, 1, 1, -1, 0, 1, -1, 0, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 0, -1, 1, 1, 1, 1, 1, -1, 1, 0, -1, 1, 0, 1, 1, 1, 1, -1, 0, -1, 1, 1, -1, -1, 1, -1, -1, 0, -1, 1, 0, -1, 1, 1, -1, -1, -1, -1, 1, 0, -1, -1, 0, -1, -1, -1, -1, 1, -1, -1, 1, 0, -1, 1, -1, -1, 1, 0, 1, 1, 0, -1, 1, -1, -1, 1, -1, 1, 1, 0, 1, -1, -1, 1, -1, 0, -1, -1, 0, 1, -1, -1, 1, -1, -1, -1, -1, 0, -1, 1, -1, 1, -1, 0, 1, 1, 0, 1, 1, -1, 1, -1, -1, 1, -1, 0, 1)
+
+[node name="SuperMarketSign" type="MeshInstance3D"]
+transform = Transform3D(1.47286, 0, 0, 0, 0, 1.47286, 0, -0.104786, 0, 0, 1.49389, 0)
+mesh = SubResource("ArrayMesh_8wtlt")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_bil8c")

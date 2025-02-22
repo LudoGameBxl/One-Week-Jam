@@ -2,17 +2,25 @@ extends Node3D
 
 const NOISETTE_CUBE_001 = preload("res://assets/concept/noisette.tres")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var sign_mesh_instance_3d: MeshInstance3D = $Node3D/SignMeshInstance3D
+@export var sign_mesh_instance_3d: MeshInstance3D
 const ARBRE_01 = preload("res://Scenes/arbre_01.tscn")
 const ARBRE_02 = preload("res://Scenes/arbre_02.tscn")
 var current_position = Vector3.ZERO
 var played = false
 @onready var tree_container: Node3D = $Node3D/tree_container
 
+@onready var house_sig_n: MeshInstance3D = %HouseSigN
+@onready var super_market_sign: MeshInstance3D = %SuperMarketSign
+
 func _ready() -> void:
 	current_position = position
-	
-	pass # Replace with function body.
+	var rand = randi_range(1,2)
+	if rand == 1:
+		house_sig_n.hide()
+		super_market_sign.show()
+	else:
+		house_sig_n.show()
+		super_market_sign.hide()
 
 func _process(delta: float) -> void:
 	pass
@@ -20,7 +28,7 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("bullet") and !played:
-		print(body.bullet_type)
+	
 		var tree
 		if body.bullet_type == "bullet_2":
 			tree = ARBRE_01.instantiate()
@@ -31,7 +39,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 				tree = ARBRE_01.instantiate()
 			else:
 				tree = ARBRE_02.instantiate()
-					
+		tree.rotate_x(deg_to_rad(180))
 		tree_container.add_child(tree)
 		SignalManager.touched_target.emit(1)
 		animation_player.play("rotate")

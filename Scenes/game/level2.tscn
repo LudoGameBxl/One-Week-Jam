@@ -80,79 +80,58 @@ fov = 80.2443
 transform = Transform3D(-1, -6.09831e-09, -8.72098e-08, 0, 0.997564, -0.0697565, 8.74228e-08, -0.0697565, -0.997564, 0, 16.7356, -46.4244)
 
 [node name="TargetFix" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, 0, -8.24245, 0.576366)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588481, 0.999983, 1.24425e-06, -0.000411506, 1.21444e-06, 1, -11.3711, -8.85428, -3.06205)
 
 [node name="TargetFix2" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, 5.73098, -7.9455, 0.555603)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588481, 0.999983, 1.24425e-06, -0.000411506, 1.21444e-06, 1, 4.31861, -15.0645, -20.061)
 
 [node name="TargetFix3" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, 10.7678, -7.87444, 0.550636)
+transform = Transform3D(0.999962, -0.00872269, 0.00060995, 0.00872269, 0.999963, 2.67476e-06, -0.000609951, 2.65986e-06, 1, -1.71535, -9.23219, -3.03563)
 
 [node name="TargetFix4" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -4.60324, -8.1904, 4.55743)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588481, 0.999983, 1.24425e-06, -0.000411506, 1.21444e-06, 1, -6.89585, -9.29758, -3.03105)
 
 [node name="TargetFix5" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, 2.43599, -7.03246, 4.47646)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588481, 0.999983, 1.24425e-06, -0.000411506, 1.21444e-06, 1, 4.31861, -16.0441, -24.1835)
 
 [node name="TargetFix6" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 8.88178e-16, 0, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -4.54747e-13, -16.3499, -26.9283)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588481, 0.999983, 1.24425e-06, -0.000411506, 1.21444e-06, 1, 4.31861, -10.6514, -9.85629)
 
 [node name="TargetFix7" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 8.88178e-16, 0, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, 5.73098, -16.1675, -26.941)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588481, 0.999983, 1.24425e-06, -0.000411506, 1.21444e-06, 1, 4.31861, -12.6006, -14.655)
 
 [node name="TargetFix8" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 8.88178e-16, 0, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, 10.7678, -15.8993, -26.9598)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588481, 0.999983, 1.24425e-06, -0.000411506, 1.21444e-06, 1, 4.31861, -9.36208, -4.92487)
 
 [node name="TargetFix9" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 8.88178e-16, 0, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -4.60324, -16.5411, -22.9302)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588481, 0.999983, 1.24425e-06, -0.000411506, 1.21444e-06, 1, -2.87088, -12.62, -11.8395)
 
 [node name="TargetFix10" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 8.88178e-16, 0, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, 2.43599, -16.0049, -22.9677)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588481, 0.999984, 1.2666e-06, -0.000411507, 1.21444e-06, 1, -12.1323, -19.2213, -47.4222)
 
 [node name="TargetFix11" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 8.88178e-16, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -4.54747e-13, -14.779, -17.7351)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588482, 0.999984, 1.2815e-06, -0.000411507, 1.21444e-06, 1, 3.55741, -18.8687, -64.8801)
 
 [node name="TargetFix12" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 8.88178e-16, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, 5.73098, -13.9408, -17.7937)
+transform = Transform3D(0.999962, -0.00872269, 0.00060995, 0.0087227, 0.999963, 2.67476e-06, -0.000609951, 2.63751e-06, 1, -2.47654, -19.8314, -47.3795)
 
 [node name="TargetFix13" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 8.88178e-16, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, 10.7678, -12.8401, -17.8706)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588482, 0.999984, 1.2815e-06, -0.000411507, 1.21444e-06, 1, -7.65705, -19.5402, -47.3999)
 
 [node name="TargetFix14" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 8.88178e-16, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -4.60324, -13.5829, -13.834)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588482, 0.999984, 1.2815e-06, -0.000411507, 1.21444e-06, 1, 3.55741, -19.3413, -69.038)
 
 [node name="TargetFix15" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 8.88178e-16, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, 2.43599, -12.6426, -13.8998)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588482, 0.999984, 1.2815e-06, -0.000411507, 1.21444e-06, 1, 3.55741, -19.2942, -54.337)
 
 [node name="TargetFix16" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -10.6842, -13.2502, -14.8282)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588482, 0.999984, 1.2815e-06, -0.000411507, 1.21444e-06, 1, 3.55741, -18.4787, -59.3291)
 
 [node name="TargetFix17" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -4.95324, -13.9304, -14.7806)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588482, 0.999984, 1.2815e-06, -0.000411507, 1.21444e-06, 1, 3.55741, -20.2313, -49.2499)
 
 [node name="TargetFix18" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, 0.08358, -13.5999, -14.8037)
-
-[node name="TargetFix19" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -15.2875, -10.1727, -11.0586)
-
-[node name="TargetFix20" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -8.24823, -11.811, -10.9441)
-
-[node name="TargetFix21" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -10.6842, -9.47073, -5.78936)
-
-[node name="TargetFix22" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -4.95324, -10.042, -5.7494)
-
-[node name="TargetFix23" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, 0.08358, -9.86907, -5.76151)
-
-[node name="TargetFix24" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -15.2875, -8.13468, -1.89808)
-
-[node name="TargetFix25" parent="TargetsContainer" instance=ExtResource("2_uxo0l")]
-transform = Transform3D(2, 0, 1.42109e-14, 0, 2, 1.49012e-08, 0, -1.49012e-08, 2, -8.24823, -9.01646, -1.83641)
+transform = Transform3D(0.999983, -0.00588481, 0.000411506, 0.00588482, 0.999984, 1.28895e-06, -0.000411507, 1.21444e-06, 1, -3.63208, -18.4951, -56.5137)
 
 [node name="TerrainNode3D" type="Node3D" parent="."]
 
@@ -165,7 +144,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.876,
 [node name="Environement" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environement"]
-transform = Transform3D(1, 0, 0, 0, -0.122857, 0.992424, 0, -0.992424, -0.122857, 0, 14.0006, 5)
+transform = Transform3D(1, 0, 0, 0, 0.489854, 0.871805, 0, -0.871805, 0.489854, 0, 155.796, 5)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environement"]

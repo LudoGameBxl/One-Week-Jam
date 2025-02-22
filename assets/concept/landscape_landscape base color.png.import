@@ -2,23 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbaxt4wa5qs8e"
-path="res://.godot/imported/panneau_maison_Image.png-6733b67c47ff491d81ebc62667b6d0be.ctex"
+uid="uid://b01xknan7443"
+path.s3tc="res://.godot/imported/landscape_landscape base color.png-78e792241057354c48708fc11a9a0c71.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={
-"md5": "dbc1b50d2c8279c6eb349daaf87669df"
+"md5": "480862b2102e397dfb6d88ede6110e6b"
 }
 
 [deps]
 
-source_file="res://assets/concept/panneau_maison_Image.png"
-dest_files=["res://.godot/imported/panneau_maison_Image.png-6733b67c47ff491d81ebc62667b6d0be.ctex"]
+source_file="res://assets/concept/landscape_landscape base color.png"
+dest_files=["res://.godot/imported/landscape_landscape base color.png-78e792241057354c48708fc11a9a0c71.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -34,4 +35,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
