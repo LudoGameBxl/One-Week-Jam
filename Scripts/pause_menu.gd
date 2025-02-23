@@ -6,22 +6,20 @@ extends Control
 @onready var game: Node3D = $"../../../Game"
 @onready var hud: Control = $"../../HUD"
 @onready var audio_stream_player: AudioStreamPlayer = $"../../../AudioStreamPlayer"
+@onready var restart_button: Button = %RestartButton
 var levelscene = null
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	resume_button.pressed.connect(resume_button_pressed)
 	quit_button.pressed.connect(quit_button_pressed)
+	restart_button.pressed.connect(restart_button_pressed)
 
 func resume_button_pressed() -> void:
 	SignalManager.current_scene_menu.emit("hud_scene")
-	#if !game.get_child(0):
-		#levelscene = level_scene.instantiate()
-		#game.add_child(levelscene)
-		#audio_stream_player.play()
-	#hud.show()
-	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	#queue_free()
 
 func quit_button_pressed() -> void:
 	get_tree().quit()
+
+func restart_button_pressed():
+	SignalManager.current_scene_menu.emit("restart_game")

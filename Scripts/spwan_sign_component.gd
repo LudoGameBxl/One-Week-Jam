@@ -11,14 +11,18 @@ extends Node3D
 @export var spawn_area: Vector3 = Vector3(30, 0, 30)
 
 # Nombre d'objets à placer
-@export var num_objects: int = 10
+var num_objects: int = randi_range(1, 5)
 
 @export var spawn_center: Node3D
 
 func _ready():
+	randomize()
+	num_objects = randi_range(1, 10)
 	for i in range(num_objects):
 		place_object_randomly()
 		
+	SignalManager.bullets_attempts = num_objects + 4
+	SignalManager.current_score = 0
 	#if spawn_area_visual and spawn_area_visual.mesh is BoxMesh:
 		#spawn_area_visual.mesh.size = spawn_area
 

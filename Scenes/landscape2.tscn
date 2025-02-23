@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://kgmlhc0wybd0"]
+
+[ext_resource type="PackedScene" uid="uid://csl6rutiptvbv" path="res://Scenes/landscape3.tscn" id="1_a8r32"]
+
+[node name="landscape" type="Node3D"]
+
+[node name="Plan" parent="." instance=ExtResource("1_a8r32")]

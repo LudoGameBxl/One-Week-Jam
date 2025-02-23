@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bav5qarx5mwla"]
+[gd_scene load_steps=8 format=3 uid="uid://bav5qarx5mwla"]
 
 [ext_resource type="Script" path="res://Scripts/main_game.gd" id="1_ifi6g"]
 [ext_resource type="PackedScene" uid="uid://csphma0c870p8" path="res://Scenes/ui/pause_menu.tscn" id="3_eqero"]
 [ext_resource type="PackedScene" uid="uid://cs8dsiyo0626c" path="res://Scenes/ui/hud.tscn" id="3_msd76"]
-[ext_resource type="AudioStream" uid="uid://dtnxlkduuwl0q" path="res://assets/sounds/music-pour-reflexion-199415.mp3" id="4_keyyg"]
 [ext_resource type="PackedScene" uid="uid://dhm01xjkk5yjm" path="res://Scenes/ui/main_menu.tscn" id="4_rtwiv"]
+[ext_resource type="PackedScene" uid="uid://c8fvtsg30k4yt" path="res://Scenes/ui/win_menu.tscn" id="5_mfg21"]
 [ext_resource type="PackedScene" uid="uid://n7bi03v6ewjg" path="res://Scenes/game/level2.tscn" id="5_q3rfk"]
+[ext_resource type="PackedScene" uid="uid://5s0npts0v4t3" path="res://Scenes/ui/gameover_menu.tscn" id="6_kljpn"]
 
 [node name="MainGame" type="Node3D" node_paths=PackedStringArray("targets_container")]
 script = ExtResource("1_ifi6g")
@@ -13,15 +14,15 @@ targets_container = NodePath("Game")
 hud_scene = ExtResource("3_msd76")
 menu_scene = ExtResource("4_rtwiv")
 pause_scene = ExtResource("3_eqero")
+win_scene = ExtResource("5_mfg21")
+gameover_scene = ExtResource("6_kljpn")
+game_level = ExtResource("5_q3rfk")
 
 [node name="Game" type="Node3D" parent="."]
 
 [node name="Level" parent="Game" instance=ExtResource("5_q3rfk")]
 
 [node name="UI" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="UI" instance=ExtResource("3_msd76")]
-visible = false
 
 [node name="Menus" type="Control" parent="UI"]
 layout_mode = 3
@@ -33,9 +34,3 @@ grow_vertical = 2
 
 [node name="MainMenu" parent="UI/Menus" instance=ExtResource("4_rtwiv")]
 layout_mode = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_keyyg")
-volume_db = -15.0
-autoplay = true
-parameters/looping = true

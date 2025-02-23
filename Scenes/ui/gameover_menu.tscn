@@ -1,0 +1,167 @@
+[gd_scene load_steps=14 format=3 uid="uid://5s0npts0v4t3"]
+
+[ext_resource type="Script" path="res://Scripts/gameover_menu.gd" id="1_c1nfg"]
+[ext_resource type="FontFile" uid="uid://dirq7oge4c825" path="res://assets/fonts/HeyBro!-Regular.ttf" id="2_ca5al"]
+[ext_resource type="Texture2D" uid="uid://hu2o87tgaswr" path="res://assets/concept/game over loose.png" id="2_r0pbo"]
+[ext_resource type="AudioStream" uid="uid://cwtwtghwkmwwb" path="res://assets/sounds/game-over-classic-206486.mp3" id="3_yofow"]
+
+[sub_resource type="Gradient" id="Gradient_judmq"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 0.12549)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_61jfi"]
+gradient = SubResource("Gradient_judmq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8vp7"]
+texture = SubResource("GradientTexture2D_61jfi")
+
+[sub_resource type="LabelSettings" id="LabelSettings_8qna7"]
+font = ExtResource("2_ca5al")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_djjkd"]
+font = ExtResource("2_ca5al")
+font_size = 36
+font_color = Color(0.889953, 0.213344, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cg2i1"]
+font = ExtResource("2_ca5al")
+font_size = 20
+
+[sub_resource type="Animation" id="Animation_1yi4s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jri7y"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pnrna"]
+_data = {
+"RESET": SubResource("Animation_1yi4s"),
+"fade": SubResource("Animation_jri7y")
+}
+
+[node name="GameoverMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c1nfg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r0pbo")
+expand_mode = 3
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w8vp7")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Call Of Nutty"
+label_settings = SubResource("LabelSettings_8qna7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_djjkd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="RestartButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_ca5al")
+theme_override_font_sizes/font_size = 25
+text = "Try Again"
+
+[node name="QuitButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_ca5al")
+theme_override_font_sizes/font_size = 22
+text = "Quit"
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "By AurielArt & LudoGameBxl"
+label_settings = SubResource("LabelSettings_cg2i1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yofow")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pnrna")
+}
+autoplay = "fade"

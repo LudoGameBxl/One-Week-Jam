@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvji6wm6ordha"]
+
+[ext_resource type="VideoStream" path="res://assets/intro.ogv" id="1_5tw4o"]
+[ext_resource type="Script" path="res://video_intro_control.gd" id="1_7eb7s"]
+[ext_resource type="PackedScene" uid="uid://bav5qarx5mwla" path="res://Scenes/game/main_game.tscn" id="2_ygola"]
+
+[node name="VideoIntroControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7eb7s")
+game_scene = ExtResource("2_ygola")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer"]
+layout_mode = 2
+stream = ExtResource("1_5tw4o")
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1687.0
+offset_top = 1030.0
+offset_right = 1892.0
+offset_bottom = 1053.0
+text = "Press any key to skip intro"
+
+[connection signal="finished" from="AspectRatioContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

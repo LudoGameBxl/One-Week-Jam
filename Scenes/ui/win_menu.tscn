@@ -1,0 +1,167 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8fvtsg30k4yt"]
+
+[ext_resource type="FontFile" uid="uid://dirq7oge4c825" path="res://assets/fonts/HeyBro!-Regular.ttf" id="1_7gksu"]
+[ext_resource type="Script" path="res://Scripts/win_menu.gd" id="1_bponv"]
+[ext_resource type="AudioStream" uid="uid://ci2s20aaqlq43" path="res://assets/sounds/prideswell-300629.mp3" id="3_1tejg"]
+[ext_resource type="Texture2D" uid="uid://byy7et4dbwifd" path="res://assets/concept/game over win.png" id="4_fiukg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d16i1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8qna7"]
+font = ExtResource("1_7gksu")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_djjkd"]
+font = ExtResource("1_7gksu")
+font_size = 36
+font_color = Color(0.315965, 0.581806, 0.0725603, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cg2i1"]
+font = ExtResource("1_7gksu")
+
+[sub_resource type="Animation" id="Animation_1yi4s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jri7y"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pnrna"]
+_data = {
+"RESET": SubResource("Animation_1yi4s"),
+"fade": SubResource("Animation_jri7y")
+}
+
+[node name="WinMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bponv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fiukg")
+expand_mode = 3
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_d16i1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Call Of Nutty"
+label_settings = SubResource("LabelSettings_8qna7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "WIN"
+label_settings = SubResource("LabelSettings_djjkd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ResumeButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_7gksu")
+theme_override_font_sizes/font_size = 22
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_7gksu")
+theme_override_font_sizes/font_size = 22
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_7gksu")
+theme_override_font_sizes/font_size = 20
+text = "Quit"
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "By AurielArt & LudoGameBxl"
+label_settings = SubResource("LabelSettings_cg2i1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1tejg")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pnrna")
+}
+autoplay = "fade"

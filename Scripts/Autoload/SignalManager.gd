@@ -7,3 +7,4 @@ signal current_bullet_selected
 signal current_scene_menu
 
 var current_score = 0
+var bullets_attempts = 0

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c31ltw8u4bbfs"]
+
+[ext_resource type="PackedScene" uid="uid://ckvnw44b18lip" path="res://assets/concept/landscape.glb" id="1_mop6w"]
+
+[sub_resource type="Skin" id="Skin_yiuhc"]
+
+[node name="landscape" instance=ExtResource("1_mop6w")]
+
+[node name="Plan" parent="." index="0"]
+skin = SubResource("Skin_yiuhc")

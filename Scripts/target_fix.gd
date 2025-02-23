@@ -27,7 +27,8 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("bullet") and !played:
-	
+		SignalManager.current_score = SignalManager.current_score + 1
+		SignalManager.touched_target.emit(1)
 		var tree
 		if body.bullet_type == "bullet_2":
 			tree = ARBRE_01.instantiate()
@@ -40,7 +41,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 				tree = ARBRE_02.instantiate()
 		tree.rotate_x(deg_to_rad(180))
 		tree_container.add_child(tree)
-		SignalManager.touched_target.emit(1)
 		animation_player.play("rotate")
 		await get_tree().create_timer(1.0).timeout
 		super_market_sign.hide()

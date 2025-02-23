@@ -15,10 +15,9 @@ func _ready() -> void:
 
 func play_button_pressed() -> void:
 	SignalManager.current_scene_menu.emit("hud_scene")
-	#if !game.get_child(0):
-		#levelscene = level_scene.instantiate()
-		#game.add_child(levelscene)
-		#audio_stream_player.play()
+	if !game.get_child(0):
+		levelscene = level_scene.instantiate()
+		game.add_child(levelscene)
 	#hud.show()
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	#queue_free()

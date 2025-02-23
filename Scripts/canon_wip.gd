@@ -4,7 +4,8 @@ const BULLET = preload("res://Scenes/actors/bullets/bullet.tscn")
 const NOISETTE_BULLET = preload("res://Scenes/actors/bullets/noisetteBullet.tscn")
 const PING_BULLET = preload("res://Scenes/actors/bullets/PingBullet.tscn")
 
-@onready var targets_container: Node3D = $"../TargetsContainer"
+@export var targets_container: Node3D
+
 var target_count := 0
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
@@ -74,9 +75,6 @@ func _process(delta: float) -> void:
 			target.global_transform.origin = target_position
 			
 			align_with_normal(collision_normal)
-		# Optionnel : Orienter la cible face à la caméra ou à l'origine du RayCast
-		#var direction_to_camera = (collision_point - global_transform.origin).normalized()
-		#target.look_at(collision_point + direction_to_camera, Vector3.UP)
 	else:
 		# Si le RayCast ne touche rien, vous pouvez cacher la cible ou la déplacer hors de l'écran
 		target.global_transform.origin = Vector3(0, -1000, 0)  # Déplacer hors de la vue
@@ -98,21 +96,27 @@ func align_with_normal(normal: Vector3):
 
 func shoot_projectile(force: float):
 	if bullets_array_scene.size() == 3:
-		var projectile = bullets_array_scene[current_bullet_selected].instantiate() as RigidBody3D
-		get_parent().add_child(projectile) 
+		if SignalManager.bullets_attempts > 0:
+			var projectile = bullets_array_scene[current_bullet_selected].instantiate() as RigidBody3D
+			get_parent().add_child(projectile) 
 
-		projectile.global_transform.origin = raycast_point.global_transform.origin
+			projectile.global_transform.origin = raycast_point.global_transform.origin
 
-		var direction = -raycast_point.global_transform.basis.z.normalized()
-		if raycast.is_colliding():
-			direction = (raycast.get_collision_point() - raycast_point.global_transform.origin).normalized()
-		audio_stream_player.play()
-		projectile.apply_impulse(direction * force)
+			var direction = -raycast_point.global_transform.basis.z.normalized()
+			if raycast.is_colliding():
+				direction = (raycast.get_collision_point() - raycast_point.global_transform.origin).normalized()
+			audio_stream_player.play()
+			projectile.apply_impulse(direction * force)
+			SignalManager.bullets_attempts = SignalManager.bullets_attempts - 1
+		else:
+			await get_tree().create_timer(0.5).timeout
+			SignalManager.current_scene_menu.emit("gameover_menu")
 
 func new_bullet_selected(bullet_number): 
 	current_bullet_selected = bullet_number - 1
 
 func touched_target(score):
 	target_count = targets_container.get_child_count()
+	print(str(target_count) + " - " + str(SignalManager.current_score))
 	if target_count <= SignalManager.current_score:
-		print('win')
+		SignalManager.current_scene_menu.emit("win_menu")
